@@ -1,6 +1,7 @@
 
 import 'package:kaishokunmobile/models/enum/app_bar_type.dart';
 import 'package:kaishokunmobile/models/enum/bottom_navigation_type.dart';
+import 'package:kaishokunmobile/models/enum/menu_item_type.dart';
 
 class Convert {
 
@@ -45,6 +46,23 @@ class Convert {
         return "応援";
       case BottomNavigationType.menu:
         return "メニュー";
+      default:
+        return "";
+    }
+  }
+
+  static String menuTitle(MenuItemType type) {
+    switch (type) {
+      case MenuItemType.setting:
+        return "設定";
+      case MenuItemType.opinion:
+        return "ご意見";
+      case MenuItemType.evaluation:
+        return "評価";
+      case MenuItemType.developer:
+        return "作った人";
+      case MenuItemType.cheerApp:
+        return "解消くんを応援する";
       default:
         return "";
     }

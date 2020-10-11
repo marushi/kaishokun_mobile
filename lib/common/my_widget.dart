@@ -28,11 +28,62 @@ class MyWidget {
     if (canPop) {
       return IconButton(
         icon: AppImage.chevronLeft,
+        color: AppColor.surface,
         onPressed: () {
           Navigator.pop(context);
         }
       );
     }
     return Container();
+  }
+
+  static simpleTextField(int lines,String hint) {
+    return TextField(
+      maxLines: lines,
+      cursorColor: AppColor.onSurface,
+      cursorWidth: 0.5,
+      decoration: InputDecoration(
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.0),
+          borderSide: BorderSide(
+            color: AppColor.onSurface,
+            width: 0.5,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.0),
+          borderSide: BorderSide(
+            color: AppColor.onSurface,
+            width: 0.5,
+          ),
+        ),
+        contentPadding: EdgeInsets.all(16),
+        hintText: hint,
+      ),
+    );
+  }
+
+  static Widget twitterIcon(String url,BuildContext context) {
+    return InkWell(
+      child: SizedBox(
+        height: 24,
+        width: 24,
+        child: AppImage.twitter,
+      ),
+      onTap: () {
+      },
+    );
+  }
+
+  static Widget instagramIcon(String url,BuildContext context) {
+    return InkWell(
+      child: SizedBox(
+        height: 24,
+        width: 24,
+        child: AppImage.instagram,
+      ),
+      onTap: () {
+      },
+    );
   }
 }

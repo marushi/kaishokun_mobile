@@ -11,16 +11,15 @@ class CheerCollectionView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StateNotifierProvider<CheerCollectionNotifier, CheerCollectionState>(
-        create: (_) => CheerCollectionNotifier(),
-        child: Container(
-          padding: EdgeInsets.all(16),
-          color: AppColor.back,
-          child: ListView.builder(
-              itemCount: 3,
-              itemBuilder: (BuildContext context, int index) {
-                return CheerCollectionWidget.cheerCollectionItem(index, context);
-              }),
-        ),
+      create: (_) => CheerCollectionNotifier(),
+      child: Container(
+        color: AppColor.back,
+        child: ListView.builder(
+            itemCount: 3,
+            itemBuilder: (BuildContext context, int index) {
+              return CheerCollectionWidget.cheerCollectionItem(index, context);
+            }),
+      ),
     );
   }
 }

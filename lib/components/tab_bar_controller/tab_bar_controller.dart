@@ -27,7 +27,7 @@ class _TabBarControllerState extends State<TabBarController> with SingleTickerPr
       child: Scaffold(
         appBar: TabBarWidget.tabBarAppBar(false, _selectIndex, context),
         body: TabBarWidget.tabBarBody(_selectIndex),
-        floatingActionButton: TabBarWidget.floatingButton(_selectIndex),
+        floatingActionButton: TabBarWidget.floatingButton(_selectIndex,context),
         bottomNavigationBar: TabBarWidget.bottomNavigationBar(_selectIndex,tapBottomNavigationItem),
       ),
     );

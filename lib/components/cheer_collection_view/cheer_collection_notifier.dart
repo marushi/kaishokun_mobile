@@ -1,6 +1,6 @@
 
-import 'package:kaishokunmobile/components/cheer_collection_view/cheer_collection_state.dart';
 import 'package:state_notifier/state_notifier.dart';
+import 'cheer_collection_state.dart';
 
 class CheerCollectionNotifier extends StateNotifier<CheerCollectionState> {
   CheerCollectionNotifier() : super(const CheerCollectionState()) {}
