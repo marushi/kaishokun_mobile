@@ -1,4 +1,5 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kaishokunmobile/configs/app_color.dart';
 import 'package:kaishokunmobile/configs/app_image.dart';
@@ -63,6 +64,16 @@ class MyWidget {
     );
   }
 
+  static bottomLineTextField(int lines,String hint) {
+    return CupertinoTextField(
+      decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(width: 0.5,color: AppColor.onSurface,style: BorderStyle.solid)),
+      ),
+      cursorColor: AppColor.onSurface,
+      cursorWidth: 0.5,
+    );
+  }
+
   static Widget twitterIcon(String url,BuildContext context) {
     return InkWell(
       child: SizedBox(
@@ -84,6 +95,13 @@ class MyWidget {
       ),
       onTap: () {
       },
+    );
+  }
+
+  static BoxDecoration simpleDecoration() {
+    return BoxDecoration(
+      border: Border(bottom: BorderSide(width: 0.5,color: AppColor.silver,style: BorderStyle.solid)),
+      color: AppColor.surface
     );
   }
 }

@@ -1,0 +1,5 @@
+
+enum DeveloperType {
+  frontEnd,
+  backEnd,
+}

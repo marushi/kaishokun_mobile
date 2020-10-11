@@ -1,7 +1,11 @@
 
+import 'package:kaishokunmobile/configs/developer_information.dart';
 import 'package:kaishokunmobile/models/enum/app_bar_type.dart';
 import 'package:kaishokunmobile/models/enum/bottom_navigation_type.dart';
+import 'package:kaishokunmobile/models/enum/developer_information_type.dart';
+import 'package:kaishokunmobile/models/enum/developer_type.dart';
 import 'package:kaishokunmobile/models/enum/menu_item_type.dart';
+import 'package:kaishokunmobile/models/enum/setting_type.dart';
 
 class Convert {
 
@@ -65,6 +69,53 @@ class Convert {
         return "解消くんを応援する";
       default:
         return "";
+    }
+  }
+
+  static String settingTitle(SettingType type) {
+    switch (type) {
+      case SettingType.penName:
+        return "ペンネーム";
+      case SettingType.twitter:
+        return "Twitter";
+      case SettingType.instagram:
+        return "Instagram";
+      default:
+        return "";
+    }
+  }
+
+  static String developerInformation(DeveloperType developerType,DeveloperInformationType informationType) {
+    if (developerType == DeveloperType.frontEnd) {
+      switch (informationType) {
+        case DeveloperInformationType.role:
+          return DeveloperInformation.frontEndRole;
+        case DeveloperInformationType.name:
+          return DeveloperInformation.frontEndName;
+        case DeveloperInformationType.introduction:
+          return DeveloperInformation.frontEndIntroduction;
+        case DeveloperInformationType.twitter:
+          return DeveloperInformation.frontEndTwitterURL;
+        case DeveloperInformationType.instagram:
+          return DeveloperInformation.frontEndInstagramURL;
+        default:
+          return "";
+      }
+    } else{
+      switch (informationType) {
+        case DeveloperInformationType.role:
+          return DeveloperInformation.backEndRole;
+        case DeveloperInformationType.name:
+          return DeveloperInformation.backEndName;
+        case DeveloperInformationType.introduction:
+          return DeveloperInformation.backEndIntroduction;
+        case DeveloperInformationType.twitter:
+          return DeveloperInformation.backEndTwitterURL;
+        case DeveloperInformationType.instagram:
+          return DeveloperInformation.backEndInstagramURL;
+        default:
+          return "";
+      }
     }
   }
 }

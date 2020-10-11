@@ -1,4 +1,7 @@
 
+import 'dart:io';
+
+import 'package:app_review/app_review.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kaishokunmobile/configs/app_color.dart';
@@ -24,7 +27,7 @@ class MenuWidget {
           ],
         ),
       ),
-      onTap: () {_tapMenuItem(context);},
+      onTap: () {_tapMenuItem(context,index);},
     );
   }
 
@@ -33,7 +36,41 @@ class MenuWidget {
     return Text(title,style: AppTextStyle.menuText,);
   }
 
-  static void _tapMenuItem(BuildContext context) {
+  static void _tapMenuItem(BuildContext context,int index) {
+    MenuItemType itemType = menuTitles[index];
+    switch (itemType) {
+      case MenuItemType.setting:
+        _transitionSettingPage(context);
+        break;
+      case MenuItemType.evaluation:
+        _evaluateApp();
+        break;
+      case MenuItemType.developer:
+        _transitionDeveloperPage(context);
+        break;
+      case MenuItemType.cheerApp:
+        _cheerApp();
+        break;
+      default:
+        break;
+    }
+  }
+
+  static void _transitionSettingPage(BuildContext context) {
+    Navigator.pushNamed(context, '/setting');
+  }
+
+  static void _evaluateApp() {
+    if (Platform.isIOS) {
+      AppReview.requestReview.then((onValue) {});
+    }
+  }
+
+  static void _transitionDeveloperPage(BuildContext context) {
+    Navigator.pushNamed(context, '/developer');
+  }
+
+  static void _cheerApp() {
 
   }
 }
