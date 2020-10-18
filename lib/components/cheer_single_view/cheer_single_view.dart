@@ -7,8 +7,15 @@ import 'package:kaishokunmobile/components/cheer_single_view/cheer_single_notifi
 import 'package:kaishokunmobile/components/cheer_single_view/cheer_single_state.dart';
 import 'package:kaishokunmobile/components/cheer_single_view/cheer_single_widget.dart';
 import 'package:kaishokunmobile/configs/app_color.dart';
+import 'package:kaishokunmobile/models/main/cheer.dart';
 
 class CheerSingleView extends StatelessWidget {
+
+  final Cheer cheer;
+
+  CheerSingleView({
+    this.cheer,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +32,11 @@ class CheerSingleView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              CheerSingleWidget.nameAndDate("マルコシオン", DateTime.now()),
+              CheerSingleWidget.nameAndDate(cheer.username, cheer.posted_at),
               MarginWidget.margin8(),
-              CheerSingleWidget.cheerContent("思ってもいないのに口に出してしまうことありますよね。でも反省できているだけですごいと思います。それが失礼なことだってわからない人もいます。気づけたあなたは大丈夫です！次お会いした時にはしっかり謝れるといいですね！応援してます！"),
+              CheerSingleWidget.cheerContent(cheer.content),
               MarginWidget.margin32(),
-              CheerSingleWidget.cheerPersonInfo(context),
+              CheerSingleWidget.cheerPersonInfo(context,cheer),
             ],
           ),
         ),

@@ -14,4 +14,6 @@ class AppImage {
   static Image edit = Image.asset('assets/images/edit.png');
   static Image twitter = Image.asset('assets/images/twitter_icon.png');
   static Image instagram = Image.asset('assets/images/instagram_icon.png');
+  static Image maruko = Image.asset('assets/images/maruko_image.JPG');
+  static Image shingo = Image.asset('assets/images/shingo_image.jpg');
 }

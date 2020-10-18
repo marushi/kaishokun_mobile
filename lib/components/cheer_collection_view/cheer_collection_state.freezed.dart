@@ -8,25 +8,16 @@ part of 'cheer_collection_state.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-CheerCollectionState _$CheerCollectionStateFromJson(Map<String, dynamic> json) {
-  return _CheerCollectionState.fromJson(json);
-}
 
 /// @nodoc
 class _$CheerCollectionStateTearOff {
   const _$CheerCollectionStateTearOff();
 
 // ignore: unused_element
-  _CheerCollectionState call({int count = 0, String name = ''}) {
+  _CheerCollectionState call({List<Cheer> cheers = const []}) {
     return _CheerCollectionState(
-      count: count,
-      name: name,
+      cheers: cheers,
     );
-  }
-
-// ignore: unused_element
-  CheerCollectionState fromJson(Map<String, Object> json) {
-    return CheerCollectionState.fromJson(json);
   }
 }
 
@@ -36,10 +27,8 @@ const $CheerCollectionState = _$CheerCollectionStateTearOff();
 
 /// @nodoc
 mixin _$CheerCollectionState {
-  int get count;
-  String get name;
+  List<Cheer> get cheers;
 
-  Map<String, dynamic> toJson();
   $CheerCollectionStateCopyWith<CheerCollectionState> get copyWith;
 }
 
@@ -48,7 +37,7 @@ abstract class $CheerCollectionStateCopyWith<$Res> {
   factory $CheerCollectionStateCopyWith(CheerCollectionState value,
           $Res Function(CheerCollectionState) then) =
       _$CheerCollectionStateCopyWithImpl<$Res>;
-  $Res call({int count, String name});
+  $Res call({List<Cheer> cheers});
 }
 
 /// @nodoc
@@ -62,12 +51,10 @@ class _$CheerCollectionStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object count = freezed,
-    Object name = freezed,
+    Object cheers = freezed,
   }) {
     return _then(_value.copyWith(
-      count: count == freezed ? _value.count : count as int,
-      name: name == freezed ? _value.name : name as String,
+      cheers: cheers == freezed ? _value.cheers : cheers as List<Cheer>,
     ));
   }
 }
@@ -79,7 +66,7 @@ abstract class _$CheerCollectionStateCopyWith<$Res>
           $Res Function(_CheerCollectionState) then) =
       __$CheerCollectionStateCopyWithImpl<$Res>;
   @override
-  $Res call({int count, String name});
+  $Res call({List<Cheer> cheers});
 }
 
 /// @nodoc
@@ -95,77 +82,52 @@ class __$CheerCollectionStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object count = freezed,
-    Object name = freezed,
+    Object cheers = freezed,
   }) {
     return _then(_CheerCollectionState(
-      count: count == freezed ? _value.count : count as int,
-      name: name == freezed ? _value.name : name as String,
+      cheers: cheers == freezed ? _value.cheers : cheers as List<Cheer>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
 class _$_CheerCollectionState implements _CheerCollectionState {
-  const _$_CheerCollectionState({this.count = 0, this.name = ''})
-      : assert(count != null),
-        assert(name != null);
+  const _$_CheerCollectionState({this.cheers = const []})
+      : assert(cheers != null);
 
-  factory _$_CheerCollectionState.fromJson(Map<String, dynamic> json) =>
-      _$_$_CheerCollectionStateFromJson(json);
-
-  @JsonKey(defaultValue: 0)
+  @JsonKey(defaultValue: const [])
   @override
-  final int count;
-  @JsonKey(defaultValue: '')
-  @override
-  final String name;
+  final List<Cheer> cheers;
 
   @override
   String toString() {
-    return 'CheerCollectionState(count: $count, name: $name)';
+    return 'CheerCollectionState(cheers: $cheers)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _CheerCollectionState &&
-            (identical(other.count, count) ||
-                const DeepCollectionEquality().equals(other.count, count)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+            (identical(other.cheers, cheers) ||
+                const DeepCollectionEquality().equals(other.cheers, cheers)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(count) ^
-      const DeepCollectionEquality().hash(name);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(cheers);
 
   @override
   _$CheerCollectionStateCopyWith<_CheerCollectionState> get copyWith =>
       __$CheerCollectionStateCopyWithImpl<_CheerCollectionState>(
           this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$_$_CheerCollectionStateToJson(this);
-  }
 }
 
 abstract class _CheerCollectionState implements CheerCollectionState {
-  const factory _CheerCollectionState({int count, String name}) =
+  const factory _CheerCollectionState({List<Cheer> cheers}) =
       _$_CheerCollectionState;
 
-  factory _CheerCollectionState.fromJson(Map<String, dynamic> json) =
-      _$_CheerCollectionState.fromJson;
-
   @override
-  int get count;
-  @override
-  String get name;
+  List<Cheer> get cheers;
   @override
   _$CheerCollectionStateCopyWith<_CheerCollectionState> get copyWith;
 }

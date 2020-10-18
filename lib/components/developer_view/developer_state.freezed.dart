@@ -8,9 +8,6 @@ part of 'developer_state.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-DeveloperState _$DeveloperStateFromJson(Map<String, dynamic> json) {
-  return _DeveloperState.fromJson(json);
-}
 
 /// @nodoc
 class _$DeveloperStateTearOff {
@@ -23,11 +20,6 @@ class _$DeveloperStateTearOff {
       name: name,
     );
   }
-
-// ignore: unused_element
-  DeveloperState fromJson(Map<String, Object> json) {
-    return DeveloperState.fromJson(json);
-  }
 }
 
 /// @nodoc
@@ -39,7 +31,6 @@ mixin _$DeveloperState {
   int get count;
   String get name;
 
-  Map<String, dynamic> toJson();
   $DeveloperStateCopyWith<DeveloperState> get copyWith;
 }
 
@@ -105,16 +96,11 @@ class __$DeveloperStateCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
 class _$_DeveloperState implements _DeveloperState {
   const _$_DeveloperState({this.count = 0, this.name = ''})
       : assert(count != null),
         assert(name != null);
-
-  factory _$_DeveloperState.fromJson(Map<String, dynamic> json) =>
-      _$_$_DeveloperStateFromJson(json);
 
   @JsonKey(defaultValue: 0)
   @override
@@ -147,18 +133,10 @@ class _$_DeveloperState implements _DeveloperState {
   @override
   _$DeveloperStateCopyWith<_DeveloperState> get copyWith =>
       __$DeveloperStateCopyWithImpl<_DeveloperState>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$_$_DeveloperStateToJson(this);
-  }
 }
 
 abstract class _DeveloperState implements DeveloperState {
   const factory _DeveloperState({int count, String name}) = _$_DeveloperState;
-
-  factory _DeveloperState.fromJson(Map<String, dynamic> json) =
-      _$_DeveloperState.fromJson;
 
   @override
   int get count;

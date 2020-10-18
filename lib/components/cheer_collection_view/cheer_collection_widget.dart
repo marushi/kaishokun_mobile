@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kaishokunmobile/common/margin_widget.dart';
+import 'package:kaishokunmobile/components/cheer_single_view/cheer_single_view.dart';
 import 'package:kaishokunmobile/configs/app_color.dart';
 import 'package:kaishokunmobile/configs/app_text_style.dart';
+import 'package:kaishokunmobile/helpers/my_format.dart';
+import 'package:kaishokunmobile/models/main/cheer.dart';
 
 class CheerCollectionWidget {
-  static Widget cheerCollectionItem(int index,BuildContext context) {
+  static Widget cheerCollectionItem(int index,BuildContext context,Cheer cheer) {
     return InkWell(
       child: Container(
         padding: EdgeInsets.all(24),
@@ -18,24 +21,24 @@ class CheerCollectionWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            _titleAndDate("マルコシオン",DateTime.now()),
+            _nameAndDate(cheer.username,cheer.posted_at),
             MarginWidget.margin8(),
-            _cheerContent("あああああああああああああああああああああああああああああプログラミング wwwwwwwwwwwwwwwwwwwwwwwwaおおおお"),
+            _cheerContent(cheer.content),
           ],
         ),
       ),
       onTap: () {
-        _tapCheerCollectionItem(context);
+        _tapCheerCollectionItem(context,cheer);
       },
     );
   }
 
-  static Widget _titleAndDate(String title,DateTime dateTime) {
+  static Widget _nameAndDate(String title,DateTime dateTime) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Text(title,style: AppTextStyle.orange16Normal,),
-        Text(dateTime.toString(),style: AppTextStyle.silver12Normal,)
+        Text(MyFormat.mdJp.format(dateTime),style: AppTextStyle.silver12Normal,)
       ],
     );
   }
@@ -48,7 +51,9 @@ class CheerCollectionWidget {
     );
   }
 
-  static void _tapCheerCollectionItem(BuildContext context) {
-    Navigator.pushNamed(context, '/cheer_single');
+  static void _tapCheerCollectionItem(BuildContext context,Cheer cheer) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) =>
+        CheerSingleView(cheer: cheer,)
+    ));
   }
 }

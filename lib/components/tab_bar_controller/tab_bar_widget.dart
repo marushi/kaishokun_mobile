@@ -31,12 +31,12 @@ class TabBarWidget {
     ),
   ];
 
-  static AppBar tabBarAppBar(bool canPop,int pageIndex,BuildContext context) {
+  static AppBar tabBarAppBar(bool canPop,int pageIndex,BuildContext context,Widget action) {
     AppBarType titleEnum = Convert.appbarTitleEnum(pageIndex);
     String title = Convert.appBarTitle(titleEnum);
-    Widget action = _appBarAction(titleEnum);
+    Widget updateButton = action;
 
-    return MyWidget.simpleAppBar(canPop, title, action, context);
+    return MyWidget.simpleAppBar(canPop, title, updateButton, context);
   }
 
   static Widget tabBarBody(int pageIndex) {
@@ -71,24 +71,8 @@ class TabBarWidget {
     return Container();
   }
 
-  static Widget _appBarAction(AppBarType titleEnum) {
-    if (titleEnum == AppBarType.trouble) {
-      return IconButton(
-        icon: AppImage.update,
-        onPressed: () {
-          _updateDisplayTrouble();
-        },
-      );
-    }
-    return Container();
-  }
-
-  static void _updateDisplayTrouble() {
-
-  }
-
   static Widget bottomNavText(int pageIndex) {
-    List<BottomNavigationType> list = [BottomNavigationType.trouble,BottomNavigationType.trouble,BottomNavigationType.menu];
+    List<BottomNavigationType> list = [BottomNavigationType.trouble,BottomNavigationType.cheer,BottomNavigationType.menu];
     String title = Convert.bottomNavTitle(list[pageIndex]);
 
     return Text(

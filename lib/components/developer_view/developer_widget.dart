@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kaishokunmobile/common/margin_widget.dart';
 import 'package:kaishokunmobile/common/my_widget.dart';
+import 'package:kaishokunmobile/configs/app_image.dart';
 import 'package:kaishokunmobile/configs/app_text_style.dart';
 import 'package:kaishokunmobile/helpers/convert.dart';
 import 'package:kaishokunmobile/models/enum/app_bar_type.dart';
@@ -60,10 +61,19 @@ class DeveloperWidget {
   }
 
   static Widget _developerImage(DeveloperType type) {
-    return Container(
-      width: 48,
-      height: 48,
-      color: Colors.yellow,
+    Image image;
+    if (type == DeveloperType.frontEnd) {
+      image = AppImage.maruko;
+    }else{
+      image = AppImage.shingo;
+    }
+
+    return ClipOval(
+      child: SizedBox(
+        height: 64,
+        width: 64,
+        child: image,
+      )
     );
   }
 

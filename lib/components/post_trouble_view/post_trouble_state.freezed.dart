@@ -8,25 +8,16 @@ part of 'post_trouble_state.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-PostTroubleState _$PostTroubleStateFromJson(Map<String, dynamic> json) {
-  return _PostTroubleState.fromJson(json);
-}
 
 /// @nodoc
 class _$PostTroubleStateTearOff {
   const _$PostTroubleStateTearOff();
 
 // ignore: unused_element
-  _PostTroubleState call({int count = 0, String name = ''}) {
+  _PostTroubleState call({int troubleLevel = 0}) {
     return _PostTroubleState(
-      count: count,
-      name: name,
+      troubleLevel: troubleLevel,
     );
-  }
-
-// ignore: unused_element
-  PostTroubleState fromJson(Map<String, Object> json) {
-    return PostTroubleState.fromJson(json);
   }
 }
 
@@ -36,10 +27,8 @@ const $PostTroubleState = _$PostTroubleStateTearOff();
 
 /// @nodoc
 mixin _$PostTroubleState {
-  int get count;
-  String get name;
+  int get troubleLevel;
 
-  Map<String, dynamic> toJson();
   $PostTroubleStateCopyWith<PostTroubleState> get copyWith;
 }
 
@@ -48,7 +37,7 @@ abstract class $PostTroubleStateCopyWith<$Res> {
   factory $PostTroubleStateCopyWith(
           PostTroubleState value, $Res Function(PostTroubleState) then) =
       _$PostTroubleStateCopyWithImpl<$Res>;
-  $Res call({int count, String name});
+  $Res call({int troubleLevel});
 }
 
 /// @nodoc
@@ -62,12 +51,11 @@ class _$PostTroubleStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object count = freezed,
-    Object name = freezed,
+    Object troubleLevel = freezed,
   }) {
     return _then(_value.copyWith(
-      count: count == freezed ? _value.count : count as int,
-      name: name == freezed ? _value.name : name as String,
+      troubleLevel:
+          troubleLevel == freezed ? _value.troubleLevel : troubleLevel as int,
     ));
   }
 }
@@ -79,7 +67,7 @@ abstract class _$PostTroubleStateCopyWith<$Res>
           _PostTroubleState value, $Res Function(_PostTroubleState) then) =
       __$PostTroubleStateCopyWithImpl<$Res>;
   @override
-  $Res call({int count, String name});
+  $Res call({int troubleLevel});
 }
 
 /// @nodoc
@@ -95,76 +83,52 @@ class __$PostTroubleStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object count = freezed,
-    Object name = freezed,
+    Object troubleLevel = freezed,
   }) {
     return _then(_PostTroubleState(
-      count: count == freezed ? _value.count : count as int,
-      name: name == freezed ? _value.name : name as String,
+      troubleLevel:
+          troubleLevel == freezed ? _value.troubleLevel : troubleLevel as int,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
 class _$_PostTroubleState implements _PostTroubleState {
-  const _$_PostTroubleState({this.count = 0, this.name = ''})
-      : assert(count != null),
-        assert(name != null);
-
-  factory _$_PostTroubleState.fromJson(Map<String, dynamic> json) =>
-      _$_$_PostTroubleStateFromJson(json);
+  const _$_PostTroubleState({this.troubleLevel = 0})
+      : assert(troubleLevel != null);
 
   @JsonKey(defaultValue: 0)
   @override
-  final int count;
-  @JsonKey(defaultValue: '')
-  @override
-  final String name;
+  final int troubleLevel;
 
   @override
   String toString() {
-    return 'PostTroubleState(count: $count, name: $name)';
+    return 'PostTroubleState(troubleLevel: $troubleLevel)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _PostTroubleState &&
-            (identical(other.count, count) ||
-                const DeepCollectionEquality().equals(other.count, count)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+            (identical(other.troubleLevel, troubleLevel) ||
+                const DeepCollectionEquality()
+                    .equals(other.troubleLevel, troubleLevel)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(count) ^
-      const DeepCollectionEquality().hash(name);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(troubleLevel);
 
   @override
   _$PostTroubleStateCopyWith<_PostTroubleState> get copyWith =>
       __$PostTroubleStateCopyWithImpl<_PostTroubleState>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$_$_PostTroubleStateToJson(this);
-  }
 }
 
 abstract class _PostTroubleState implements PostTroubleState {
-  const factory _PostTroubleState({int count, String name}) =
-      _$_PostTroubleState;
-
-  factory _PostTroubleState.fromJson(Map<String, dynamic> json) =
-      _$_PostTroubleState.fromJson;
+  const factory _PostTroubleState({int troubleLevel}) = _$_PostTroubleState;
 
   @override
-  int get count;
-  @override
-  String get name;
+  int get troubleLevel;
   @override
   _$PostTroubleStateCopyWith<_PostTroubleState> get copyWith;
 }

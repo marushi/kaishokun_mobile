@@ -1,22 +1,21 @@
 
+
+import 'package:json_annotation/json_annotation.dart';
+part 'cheer.g.dart';
+
+@JsonSerializable()
 class Cheer {
+  Cheer();
+
   int id;
-  int troubleId;
+  int trouble_id;
   String username;
   String twitter;
   String instagram;
   String content;
-  DateTime postedAt;
+  DateTime posted_at;
   bool read;
 
-  Cheer({
-    this.id,
-    this.troubleId,
-    this.username,
-    this.twitter,
-    this.instagram,
-    this.content,
-    this.postedAt,
-    this.read,
-  });
+  factory Cheer.fromJson(Map<String, dynamic> json) => _$CheerFromJson(json);
+  Map<String, dynamic> toJson() => _$CheerToJson(this);
 }

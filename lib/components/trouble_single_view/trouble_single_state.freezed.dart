@@ -8,9 +8,6 @@ part of 'trouble_single_state.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-TroubleSingleState _$TroubleSingleStateFromJson(Map<String, dynamic> json) {
-  return _TroubleSingleState.fromJson(json);
-}
 
 /// @nodoc
 class _$TroubleSingleStateTearOff {
@@ -23,11 +20,6 @@ class _$TroubleSingleStateTearOff {
       name: name,
     );
   }
-
-// ignore: unused_element
-  TroubleSingleState fromJson(Map<String, Object> json) {
-    return TroubleSingleState.fromJson(json);
-  }
 }
 
 /// @nodoc
@@ -39,7 +31,6 @@ mixin _$TroubleSingleState {
   int get count;
   String get name;
 
-  Map<String, dynamic> toJson();
   $TroubleSingleStateCopyWith<TroubleSingleState> get copyWith;
 }
 
@@ -105,16 +96,11 @@ class __$TroubleSingleStateCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
 class _$_TroubleSingleState implements _TroubleSingleState {
   const _$_TroubleSingleState({this.count = 0, this.name = ''})
       : assert(count != null),
         assert(name != null);
-
-  factory _$_TroubleSingleState.fromJson(Map<String, dynamic> json) =>
-      _$_$_TroubleSingleStateFromJson(json);
 
   @JsonKey(defaultValue: 0)
   @override
@@ -147,19 +133,11 @@ class _$_TroubleSingleState implements _TroubleSingleState {
   @override
   _$TroubleSingleStateCopyWith<_TroubleSingleState> get copyWith =>
       __$TroubleSingleStateCopyWithImpl<_TroubleSingleState>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$_$_TroubleSingleStateToJson(this);
-  }
 }
 
 abstract class _TroubleSingleState implements TroubleSingleState {
   const factory _TroubleSingleState({int count, String name}) =
       _$_TroubleSingleState;
-
-  factory _TroubleSingleState.fromJson(Map<String, dynamic> json) =
-      _$_TroubleSingleState.fromJson;
 
   @override
   int get count;

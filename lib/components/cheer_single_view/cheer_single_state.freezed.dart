@@ -8,9 +8,6 @@ part of 'cheer_single_state.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-CheerSingleState _$CheerSingleStateFromJson(Map<String, dynamic> json) {
-  return _CheerSingleState.fromJson(json);
-}
 
 /// @nodoc
 class _$CheerSingleStateTearOff {
@@ -23,11 +20,6 @@ class _$CheerSingleStateTearOff {
       name: name,
     );
   }
-
-// ignore: unused_element
-  CheerSingleState fromJson(Map<String, Object> json) {
-    return CheerSingleState.fromJson(json);
-  }
 }
 
 /// @nodoc
@@ -39,7 +31,6 @@ mixin _$CheerSingleState {
   int get count;
   String get name;
 
-  Map<String, dynamic> toJson();
   $CheerSingleStateCopyWith<CheerSingleState> get copyWith;
 }
 
@@ -105,16 +96,11 @@ class __$CheerSingleStateCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
 class _$_CheerSingleState implements _CheerSingleState {
   const _$_CheerSingleState({this.count = 0, this.name = ''})
       : assert(count != null),
         assert(name != null);
-
-  factory _$_CheerSingleState.fromJson(Map<String, dynamic> json) =>
-      _$_$_CheerSingleStateFromJson(json);
 
   @JsonKey(defaultValue: 0)
   @override
@@ -147,19 +133,11 @@ class _$_CheerSingleState implements _CheerSingleState {
   @override
   _$CheerSingleStateCopyWith<_CheerSingleState> get copyWith =>
       __$CheerSingleStateCopyWithImpl<_CheerSingleState>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$_$_CheerSingleStateToJson(this);
-  }
 }
 
 abstract class _CheerSingleState implements CheerSingleState {
   const factory _CheerSingleState({int count, String name}) =
       _$_CheerSingleState;
-
-  factory _CheerSingleState.fromJson(Map<String, dynamic> json) =
-      _$_CheerSingleState.fromJson;
 
   @override
   int get count;

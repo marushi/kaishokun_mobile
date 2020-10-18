@@ -2,12 +2,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kaishokunmobile/common/margin_widget.dart';
+import 'package:kaishokunmobile/components/trouble_single_view/trouble_single_view.dart';
 import 'package:kaishokunmobile/configs/app_color.dart';
 import 'package:kaishokunmobile/configs/app_text_style.dart';
+import 'package:kaishokunmobile/models/main/trouble.dart';
 
 class TroubleCollectionWidget {
 
-  static Widget troubleCollectionItem(int index,BuildContext context) {
+  static Widget troubleCollectionItem(int index,BuildContext context,Trouble trouble) {
     return InkWell(
       child: Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: AppColor.surface),
@@ -18,16 +20,16 @@ class TroubleCollectionWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            _itemTitle("隣の客の声がうるさい"),
+            _itemTitle(trouble.title),
             MarginWidget.margin8(),
-            _troubleLevel(3),
-            _penName("シオン"),
+            _troubleLevel(trouble.trouble_level),
+            _penName(trouble.username),
             MarginWidget.margin8(),
-            _content("ああああああああああああああああああああああああああああああああああああkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkksssss"),
+            _content(trouble.content),
           ],
         ),
       ),
-      onTap: () {_tapTrouble(context);},
+      onTap: () {_tapTrouble(context,trouble);},
     );
   }
 
@@ -64,7 +66,9 @@ class TroubleCollectionWidget {
     );
   }
 
-  static void _tapTrouble(BuildContext context) {
-    Navigator.pushNamed(context, "/trouble_single");
+  static void _tapTrouble(BuildContext context,Trouble trouble) {
+    Navigator.push(context, new MaterialPageRoute(builder: (context) =>
+        TroubleSingleView(trouble: trouble,)
+    ));
   }
 }

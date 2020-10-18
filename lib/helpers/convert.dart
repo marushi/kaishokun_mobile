@@ -2,6 +2,7 @@
 import 'package:kaishokunmobile/configs/developer_information.dart';
 import 'package:kaishokunmobile/models/enum/app_bar_type.dart';
 import 'package:kaishokunmobile/models/enum/bottom_navigation_type.dart';
+import 'package:kaishokunmobile/models/enum/button_type.dart';
 import 'package:kaishokunmobile/models/enum/developer_information_type.dart';
 import 'package:kaishokunmobile/models/enum/developer_type.dart';
 import 'package:kaishokunmobile/models/enum/menu_item_type.dart';
@@ -22,7 +23,7 @@ class Convert {
       case AppBarType.setting:
         return "設定";
       case AppBarType.developer:
-        return "開発者";
+        return "作った人";
       default:
         return "";
     }
@@ -117,5 +118,22 @@ class Convert {
           return "";
       }
     }
+  }
+
+  static String buttonTitleText(ButtonType type) {
+    switch (type) {
+      case ButtonType.doneInput:
+        return "入力完了";
+      default:
+        return "";
+    }
+  }
+
+  static String twitterURL (String twitterId) {
+    return "https://twitter.com/" + twitterId;
+  }
+
+  static String instagramURL (String instagramId) {
+    return "https://www.instagram.com/" + instagramId;
   }
 }

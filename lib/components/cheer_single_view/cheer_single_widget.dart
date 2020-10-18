@@ -5,7 +5,9 @@ import 'package:kaishokunmobile/common/margin_widget.dart';
 import 'package:kaishokunmobile/common/my_widget.dart';
 import 'package:kaishokunmobile/configs/app_text_style.dart';
 import 'package:kaishokunmobile/helpers/convert.dart';
+import 'package:kaishokunmobile/helpers/my_format.dart';
 import 'package:kaishokunmobile/models/enum/app_bar_type.dart';
+import 'package:kaishokunmobile/models/main/cheer.dart';
 
 class CheerSingleWidget {
 
@@ -16,11 +18,13 @@ class CheerSingleWidget {
   }
 
   static Widget nameAndDate(String title,DateTime dateTime) {
+    String date = MyFormat.mdJp.format(dateTime);
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Text(title,style: AppTextStyle.orange16Normal,),
-        Text(dateTime.toString(),style: AppTextStyle.silver12Normal,)
+        Text(date,style: AppTextStyle.silver12Normal,)
       ],
     );
   }
@@ -33,7 +37,7 @@ class CheerSingleWidget {
     );
   }
 
-  static Widget cheerPersonInfo(BuildContext context) {
+  static Widget cheerPersonInfo(BuildContext context,Cheer cheer) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,9 +48,9 @@ class CheerSingleWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            MyWidget.twitterIcon("url", context),
+            MyWidget.twitterIcon(cheer.twitter, context),
             MarginWidget.margin8(),
-            MyWidget.instagramIcon("url", context),
+            MyWidget.instagramIcon(cheer.instagram, context),
           ],
         )
       ],

@@ -8,26 +8,16 @@ part of 'trouble_collection_state.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-TroubleCollectionState _$TroubleCollectionStateFromJson(
-    Map<String, dynamic> json) {
-  return _TroubleCollectionState.fromJson(json);
-}
 
 /// @nodoc
 class _$TroubleCollectionStateTearOff {
   const _$TroubleCollectionStateTearOff();
 
 // ignore: unused_element
-  _TroubleCollectionState call({int count = 0, String name = ''}) {
+  _TroubleCollectionState call({List<Trouble> troubles = const []}) {
     return _TroubleCollectionState(
-      count: count,
-      name: name,
+      troubles: troubles,
     );
-  }
-
-// ignore: unused_element
-  TroubleCollectionState fromJson(Map<String, Object> json) {
-    return TroubleCollectionState.fromJson(json);
   }
 }
 
@@ -37,10 +27,8 @@ const $TroubleCollectionState = _$TroubleCollectionStateTearOff();
 
 /// @nodoc
 mixin _$TroubleCollectionState {
-  int get count;
-  String get name;
+  List<Trouble> get troubles;
 
-  Map<String, dynamic> toJson();
   $TroubleCollectionStateCopyWith<TroubleCollectionState> get copyWith;
 }
 
@@ -49,7 +37,7 @@ abstract class $TroubleCollectionStateCopyWith<$Res> {
   factory $TroubleCollectionStateCopyWith(TroubleCollectionState value,
           $Res Function(TroubleCollectionState) then) =
       _$TroubleCollectionStateCopyWithImpl<$Res>;
-  $Res call({int count, String name});
+  $Res call({List<Trouble> troubles});
 }
 
 /// @nodoc
@@ -63,12 +51,11 @@ class _$TroubleCollectionStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object count = freezed,
-    Object name = freezed,
+    Object troubles = freezed,
   }) {
     return _then(_value.copyWith(
-      count: count == freezed ? _value.count : count as int,
-      name: name == freezed ? _value.name : name as String,
+      troubles:
+          troubles == freezed ? _value.troubles : troubles as List<Trouble>,
     ));
   }
 }
@@ -80,7 +67,7 @@ abstract class _$TroubleCollectionStateCopyWith<$Res>
           $Res Function(_TroubleCollectionState) then) =
       __$TroubleCollectionStateCopyWithImpl<$Res>;
   @override
-  $Res call({int count, String name});
+  $Res call({List<Trouble> troubles});
 }
 
 /// @nodoc
@@ -96,77 +83,54 @@ class __$TroubleCollectionStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object count = freezed,
-    Object name = freezed,
+    Object troubles = freezed,
   }) {
     return _then(_TroubleCollectionState(
-      count: count == freezed ? _value.count : count as int,
-      name: name == freezed ? _value.name : name as String,
+      troubles:
+          troubles == freezed ? _value.troubles : troubles as List<Trouble>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
 class _$_TroubleCollectionState implements _TroubleCollectionState {
-  const _$_TroubleCollectionState({this.count = 0, this.name = ''})
-      : assert(count != null),
-        assert(name != null);
+  const _$_TroubleCollectionState({this.troubles = const []})
+      : assert(troubles != null);
 
-  factory _$_TroubleCollectionState.fromJson(Map<String, dynamic> json) =>
-      _$_$_TroubleCollectionStateFromJson(json);
-
-  @JsonKey(defaultValue: 0)
+  @JsonKey(defaultValue: const [])
   @override
-  final int count;
-  @JsonKey(defaultValue: '')
-  @override
-  final String name;
+  final List<Trouble> troubles;
 
   @override
   String toString() {
-    return 'TroubleCollectionState(count: $count, name: $name)';
+    return 'TroubleCollectionState(troubles: $troubles)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _TroubleCollectionState &&
-            (identical(other.count, count) ||
-                const DeepCollectionEquality().equals(other.count, count)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+            (identical(other.troubles, troubles) ||
+                const DeepCollectionEquality()
+                    .equals(other.troubles, troubles)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(count) ^
-      const DeepCollectionEquality().hash(name);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(troubles);
 
   @override
   _$TroubleCollectionStateCopyWith<_TroubleCollectionState> get copyWith =>
       __$TroubleCollectionStateCopyWithImpl<_TroubleCollectionState>(
           this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$_$_TroubleCollectionStateToJson(this);
-  }
 }
 
 abstract class _TroubleCollectionState implements TroubleCollectionState {
-  const factory _TroubleCollectionState({int count, String name}) =
+  const factory _TroubleCollectionState({List<Trouble> troubles}) =
       _$_TroubleCollectionState;
 
-  factory _TroubleCollectionState.fromJson(Map<String, dynamic> json) =
-      _$_TroubleCollectionState.fromJson;
-
   @override
-  int get count;
-  @override
-  String get name;
+  List<Trouble> get troubles;
   @override
   _$TroubleCollectionStateCopyWith<_TroubleCollectionState> get copyWith;
 }

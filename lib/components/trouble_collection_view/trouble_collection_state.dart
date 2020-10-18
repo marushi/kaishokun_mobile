@@ -1,13 +1,12 @@
+
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:kaishokunmobile/models/main/trouble.dart';
 
 part 'trouble_collection_state.freezed.dart';
-part 'trouble_collection_state.g.dart';
 
 @freezed
 abstract class TroubleCollectionState with _$TroubleCollectionState {
   const factory TroubleCollectionState({
-    @Default(0) int count,
-    @Default("") String name,
+    @Default([]) List<Trouble> troubles,
   }) = _TroubleCollectionState;
-  factory TroubleCollectionState.fromJson(Map<String, dynamic> json) => _$TroubleCollectionStateFromJson(json);
 }

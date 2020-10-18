@@ -7,6 +7,7 @@ import 'package:kaishokunmobile/configs/app_color.dart';
 import 'package:kaishokunmobile/configs/app_text_style.dart';
 import 'package:kaishokunmobile/helpers/convert.dart';
 import 'package:kaishokunmobile/models/enum/app_bar_type.dart';
+import 'package:kaishokunmobile/models/main/user.dart';
 
 class TroubleSingleWidget {
 
@@ -50,26 +51,28 @@ class TroubleSingleWidget {
     );
   }
 
-  static Widget cheerMessage() {
+  static Widget cheerMessage(TextEditingController controller) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text("応援メッセージ",style: AppTextStyle.orange16Normal,),
         MarginWidget.margin8(),
-        MyWidget.simpleTextField(10,""),
+        MyWidget.simpleTextField(10,"",controller),
       ],
     );
   }
 
-  static Widget cheerPanName() {
+  static Widget cheerPanName(TextEditingController controller) {
+    controller.text = User().username;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text("ペンネーム",style: AppTextStyle.orange16Normal,),
         MarginWidget.margin8(),
-        MyWidget.simpleTextField(1,""),
+        MyWidget.simpleTextField(1,"",controller),
       ],
     );
   }

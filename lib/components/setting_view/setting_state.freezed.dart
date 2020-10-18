@@ -8,25 +8,19 @@ part of 'setting_state.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-SettingState _$SettingStateFromJson(Map<String, dynamic> json) {
-  return _SettingState.fromJson(json);
-}
 
 /// @nodoc
 class _$SettingStateTearOff {
   const _$SettingStateTearOff();
 
 // ignore: unused_element
-  _SettingState call({int count = 0, String name = ''}) {
+  _SettingState call(
+      {String penName = '', String twitterId = '', String instagramId = ''}) {
     return _SettingState(
-      count: count,
-      name: name,
+      penName: penName,
+      twitterId: twitterId,
+      instagramId: instagramId,
     );
-  }
-
-// ignore: unused_element
-  SettingState fromJson(Map<String, Object> json) {
-    return SettingState.fromJson(json);
   }
 }
 
@@ -36,10 +30,10 @@ const $SettingState = _$SettingStateTearOff();
 
 /// @nodoc
 mixin _$SettingState {
-  int get count;
-  String get name;
+  String get penName;
+  String get twitterId;
+  String get instagramId;
 
-  Map<String, dynamic> toJson();
   $SettingStateCopyWith<SettingState> get copyWith;
 }
 
@@ -48,7 +42,7 @@ abstract class $SettingStateCopyWith<$Res> {
   factory $SettingStateCopyWith(
           SettingState value, $Res Function(SettingState) then) =
       _$SettingStateCopyWithImpl<$Res>;
-  $Res call({int count, String name});
+  $Res call({String penName, String twitterId, String instagramId});
 }
 
 /// @nodoc
@@ -61,12 +55,15 @@ class _$SettingStateCopyWithImpl<$Res> implements $SettingStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object count = freezed,
-    Object name = freezed,
+    Object penName = freezed,
+    Object twitterId = freezed,
+    Object instagramId = freezed,
   }) {
     return _then(_value.copyWith(
-      count: count == freezed ? _value.count : count as int,
-      name: name == freezed ? _value.name : name as String,
+      penName: penName == freezed ? _value.penName : penName as String,
+      twitterId: twitterId == freezed ? _value.twitterId : twitterId as String,
+      instagramId:
+          instagramId == freezed ? _value.instagramId : instagramId as String,
     ));
   }
 }
@@ -78,7 +75,7 @@ abstract class _$SettingStateCopyWith<$Res>
           _SettingState value, $Res Function(_SettingState) then) =
       __$SettingStateCopyWithImpl<$Res>;
   @override
-  $Res call({int count, String name});
+  $Res call({String penName, String twitterId, String instagramId});
 }
 
 /// @nodoc
@@ -93,75 +90,79 @@ class __$SettingStateCopyWithImpl<$Res> extends _$SettingStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object count = freezed,
-    Object name = freezed,
+    Object penName = freezed,
+    Object twitterId = freezed,
+    Object instagramId = freezed,
   }) {
     return _then(_SettingState(
-      count: count == freezed ? _value.count : count as int,
-      name: name == freezed ? _value.name : name as String,
+      penName: penName == freezed ? _value.penName : penName as String,
+      twitterId: twitterId == freezed ? _value.twitterId : twitterId as String,
+      instagramId:
+          instagramId == freezed ? _value.instagramId : instagramId as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
 class _$_SettingState implements _SettingState {
-  const _$_SettingState({this.count = 0, this.name = ''})
-      : assert(count != null),
-        assert(name != null);
+  const _$_SettingState(
+      {this.penName = '', this.twitterId = '', this.instagramId = ''})
+      : assert(penName != null),
+        assert(twitterId != null),
+        assert(instagramId != null);
 
-  factory _$_SettingState.fromJson(Map<String, dynamic> json) =>
-      _$_$_SettingStateFromJson(json);
-
-  @JsonKey(defaultValue: 0)
-  @override
-  final int count;
   @JsonKey(defaultValue: '')
   @override
-  final String name;
+  final String penName;
+  @JsonKey(defaultValue: '')
+  @override
+  final String twitterId;
+  @JsonKey(defaultValue: '')
+  @override
+  final String instagramId;
 
   @override
   String toString() {
-    return 'SettingState(count: $count, name: $name)';
+    return 'SettingState(penName: $penName, twitterId: $twitterId, instagramId: $instagramId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _SettingState &&
-            (identical(other.count, count) ||
-                const DeepCollectionEquality().equals(other.count, count)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+            (identical(other.penName, penName) ||
+                const DeepCollectionEquality()
+                    .equals(other.penName, penName)) &&
+            (identical(other.twitterId, twitterId) ||
+                const DeepCollectionEquality()
+                    .equals(other.twitterId, twitterId)) &&
+            (identical(other.instagramId, instagramId) ||
+                const DeepCollectionEquality()
+                    .equals(other.instagramId, instagramId)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(count) ^
-      const DeepCollectionEquality().hash(name);
+      const DeepCollectionEquality().hash(penName) ^
+      const DeepCollectionEquality().hash(twitterId) ^
+      const DeepCollectionEquality().hash(instagramId);
 
   @override
   _$SettingStateCopyWith<_SettingState> get copyWith =>
       __$SettingStateCopyWithImpl<_SettingState>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$_$_SettingStateToJson(this);
-  }
 }
 
 abstract class _SettingState implements SettingState {
-  const factory _SettingState({int count, String name}) = _$_SettingState;
-
-  factory _SettingState.fromJson(Map<String, dynamic> json) =
-      _$_SettingState.fromJson;
+  const factory _SettingState(
+      {String penName, String twitterId, String instagramId}) = _$_SettingState;
 
   @override
-  int get count;
+  String get penName;
   @override
-  String get name;
+  String get twitterId;
+  @override
+  String get instagramId;
   @override
   _$SettingStateCopyWith<_SettingState> get copyWith;
 }

@@ -2,7 +2,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kaishokunmobile/common/my_widget.dart';
-import 'package:kaishokunmobile/configs/app_color.dart';
 import 'package:kaishokunmobile/configs/app_text_style.dart';
 import 'package:kaishokunmobile/helpers/convert.dart';
 import 'package:kaishokunmobile/models/enum/app_bar_type.dart';
@@ -16,7 +15,7 @@ class SettingWidget {
     return MyWidget.simpleAppBar(true, title, action, context);
   }
 
-  static Widget inputProfileData(SettingType type) {
+  static Widget inputProfileData(SettingType type,TextEditingController controller) {
     return Container(
       padding: EdgeInsets.all(24),
       child: Row(
@@ -24,7 +23,7 @@ class SettingWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           _inputProfileTitle(type),
-          _inputProfileForm(type)
+          _inputProfileForm(type,controller)
         ],
       ),
     );
@@ -37,27 +36,10 @@ class SettingWidget {
     );
   }
 
-  static Widget _inputProfileForm(SettingType type) {
+  static Widget _inputProfileForm(SettingType type,TextEditingController controller) {
     return SizedBox(
       width: 120,
-      child: MyWidget.bottomLineTextField(1, ""),
-    );
-  }
-
-  static Widget saveButton(BuildContext context) {
-    return Align(
-      alignment: Alignment.center,
-      child: SizedBox(
-        width: 240,
-        child: RaisedButton(
-          child: Text("保存",style: AppTextStyle.orange16Normal,),
-          color: AppColor.surface,
-          shape: StadiumBorder(
-            side: BorderSide(color: AppColor.orange),
-          ),
-          onPressed: () {Navigator.pop(context);},
-        ),
-      )
+      child: MyWidget.bottomLineTextField(1, "",controller),
     );
   }
 }

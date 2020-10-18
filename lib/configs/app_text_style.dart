@@ -9,6 +9,7 @@ class AppTextStyle {
   static TextStyle silver12Normal = TextStyle(color: AppColor.silver,fontSize: 12,fontWeight: FontWeight.normal);
   static TextStyle onSurface16Normal = TextStyle(color: AppColor.onSurface,fontWeight: FontWeight.normal,fontSize: 16);
   static TextStyle onSurface21Normal = TextStyle(color: AppColor.onSurface,fontWeight: FontWeight.normal,fontSize: 21);
+  static TextStyle onSurface14Normal = TextStyle(color: AppColor.onSurface,fontWeight: FontWeight.normal,fontSize: 14);
   
   static TextStyle bottomNav = TextStyle(fontSize: 12,fontWeight: FontWeight.normal);
   static TextStyle menuText = TextStyle(fontSize: 16,fontWeight: FontWeight.normal,color: AppColor.onSurface);
